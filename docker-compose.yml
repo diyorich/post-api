@@ -1,0 +1,22 @@
+services:
+  post-api:
+    container_name: post-api
+    build: .
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+      - redis
+    networks:
+      - post-api
+  redis:
+    container_name: cache
+    image: redis:latest
+    ports:
+      - "6379:6379"  # Expose the default Redis port
+    networks:
+      - post-api
+    command: [ "cache-server", "--appendonly", "yes" ]
+networks:
+  post-api:
+volumes:
+  pgdata: {}
