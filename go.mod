@@ -1,6 +1,6 @@
-module post-api
+module github.com/diyorich/post-api
 
-go 1.22.6
+go 1.23.3
 
 require (
 	github.com/gin-gonic/gin v1.10.0

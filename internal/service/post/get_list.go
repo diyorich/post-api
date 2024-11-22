@@ -2,8 +2,8 @@ package post
 
 import (
 	"context"
-	"post-api/internal/model"
-	"post-api/pkg"
+	"github.com/diyorich/post-api/internal/model"
+	"github.com/diyorich/post-api/pkg"
 )
 
 func (s *service) GetList(ctx context.Context, pagination *pkg.Pagination) ([]model.Post, error) {

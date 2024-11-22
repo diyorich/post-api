@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"post-api/internal/model"
-	"post-api/pkg"
+	"github.com/diyorich/post-api/internal/model"
+	"github.com/diyorich/post-api/pkg"
 )
 
 type PostService interface {

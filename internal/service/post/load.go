@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/diyorich/post-api/internal/model"
+	servErr "github.com/diyorich/post-api/internal/service"
 	"os"
-	"post-api/internal/model"
-	servErr "post-api/internal/service"
 	"time"
 )
 

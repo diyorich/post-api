@@ -1,6 +1,6 @@
 package post
 
-import "post-api/internal/repository"
+import "github.com/diyorich/post-api/internal/repository"
 
 type service struct {
 	repository repository.PostRepository

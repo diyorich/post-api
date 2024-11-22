@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/diyorich/post-api/internal/config"
+	"github.com/diyorich/post-api/internal/handler"
+	"github.com/diyorich/post-api/internal/repository/cache"
+	repo "github.com/diyorich/post-api/internal/repository/post"
+	"github.com/diyorich/post-api/internal/service/post"
 	"github.com/gin-gonic/gin"
 	"github.com/pkg/errors"
 	"log"
-	"post-api/internal/config"
-	"post-api/internal/handler"
-	"post-api/internal/repository/cache"
-	repo "post-api/internal/repository/post"
-	"post-api/internal/service/post"
 	"time"
 )
 

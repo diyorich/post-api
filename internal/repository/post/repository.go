@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/diyorich/post-api/internal/model"
+	repoErr "github.com/diyorich/post-api/internal/repository"
+	"github.com/diyorich/post-api/internal/repository/cache"
+	"github.com/diyorich/post-api/pkg"
 	"github.com/redis/go-redis/v9"
-	"post-api/internal/model"
-	repoErr "post-api/internal/repository"
-	"post-api/internal/repository/cache"
-	"post-api/pkg"
 )
 
 const sortedPosts = "sorted_post_set"
@@ -46,6 +46,13 @@ func (r *repository) GetList(ctx context.Context, pagination *pkg.Pagination) ([
 	if err != nil {
 		return nil, err
 	}
+
+	totalElements, err := r.cache.ZCard(ctx, sortedPosts).Result()
+	if err != nil {
+		return nil, err
+	}
+
+	pagination.Total = int(totalElements)
 
 	converted := make([]model.Post, len(data))
 	for index, z := range data {

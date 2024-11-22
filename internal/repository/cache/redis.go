@@ -3,8 +3,8 @@ package cache
 import (
 	"context"
 	"fmt"
+	"github.com/diyorich/post-api/internal/config"
 	"github.com/redis/go-redis/v9"
-	"post-api/internal/config"
 )
 
 type Cache struct {
