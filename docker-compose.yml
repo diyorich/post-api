@@ -9,13 +9,13 @@ services:
     networks:
       - post-api
   redis:
-    container_name: cache
+    container_name: redis
     image: redis:latest
     ports:
       - "6379:6379"  # Expose the default Redis port
     networks:
       - post-api
-    command: [ "cache-server", "--appendonly", "yes" ]
+    command: [ "redis-server", "--appendonly", "yes" ]
 networks:
   post-api:
 volumes:

@@ -1,4 +1,4 @@
-FROM golang:1.22.6
+FROM golang:1.23
 
 WORKDIR /app
 
@@ -10,6 +10,6 @@ COPY . .
 
 RUN go build -o app cmd/app/main.go
 
-EXPOSE 3002
+EXPOSE 8080
 
 CMD ["/app/app"]
