@@ -1,4 +1,12 @@
 services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"  # Expose the default Redis port
+    networks:
+      - post-network
+    command: [ "redis-server", "--appendonly", "yes" ]
   post-api:
     container_name: post-api
     build: .
@@ -7,16 +15,9 @@ services:
     depends_on:
       - redis
     networks:
-      - post-api
-  redis:
-    container_name: redis
-    image: redis:latest
-    ports:
-      - "6379:6379"  # Expose the default Redis port
-    networks:
-      - post-api
-    command: [ "redis-server", "--appendonly", "yes" ]
+      - post-network
 networks:
-  post-api:
+  post-network:
+    external: true
 volumes:
   pgdata: {}
